@@ -29,3 +29,9 @@ resource "aws_vpc" "foo" {
 output "vpc_foo" {
   value = aws_vpc.foo
 }
+
+data "aws_vpcs" "this" {}
+
+output "vpcs" {
+  value = data.aws_vpcs.this
+}
