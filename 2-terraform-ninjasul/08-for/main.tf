@@ -1,3 +1,9 @@
+/*
+https://www.terraform.io/language/expressions/for
+for-each, count 는 data, resource, module 에서 사용가능한 속성임.
+반면, for는 expression 을 사용할 수 있는 모든 곳에서 사용가능함.
+*/
+
 provider "aws" {
   region = "ap-northeast-2"
 }
