@@ -63,7 +63,7 @@ resource "aws_iam_user_group_membership" "this" {
   }
 
   user   = each.key
-  groups = each.value.is_developer ? [aws_iam_group.developer.name, aws_iam_group.employee.name] : [aws_iam_group.employee.name]
+  groups = each.value.is_developer ? [aws_iam_group.this["developer"].name, aws_iam_group.this["employee"].name] : [aws_iam_group.this["employee"].name]
 }
 
 # if user.is_developer 필터를 통해 개발자만 추출
