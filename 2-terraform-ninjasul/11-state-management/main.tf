@@ -75,21 +75,6 @@ locals {
   ]
 }
 
-resource "aws_iam_user_policy_attachment" "developer" {
-  for_each = {
-  for user in local.developers :
-  user.name => user
-  }
-
-  user       = each.key
-  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
-
-  # aws_iam_user.this 가 있어야만 aws_iam_user_policy_attachment 를 생성할 수 있음.
-  depends_on = [
-    aws_iam_user.this
-  ]
-}
-
 output "developers" {
   value = local.developers
 }
